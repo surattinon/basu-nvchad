@@ -1,14 +1,40 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
+local silent = { noremap = true, silent = true }
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+------------------- Default NvChad -------------------
+map("n", ";", ":", { desc = "CMD enter command mode" }) -- CMDLINE
+map("i", "jk", "<ESC>") -- EXIT INSERT WITH "jk"
+map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>") -- SAVE WITH CTRL + S
 
--- CUSTOM TERM
+------------------- CUSTOM KEYBINDS -------------------
+-- SPLIT WINDOW
+map("n", "ss", ":split<CR>:Telescope find_files<CR>", silent)
+map("n", "sv", ":vsplit<CR>:Telescope find_files<CR>", silent)
+
+-- RESIZE WINDOW
+map("n", "<C-w><left>", "<C-w><")
+map("n", "<C-w><right>", "<C-w>>")
+map("n", "<C-w><up>", "<C-w>+")
+map("n", "<C-w><down>", "<C-w>-")
+
+-- TMUX NAVIGATOR
+map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", silent)
+map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", silent)
+map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", silent)
+map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", silent)
+
+-------------------- CUSTOM TERM ----------------------
+-- HORIZONTAL TERM TOGGLE
+map({ "n", "t" }, "<C-t>", function()
+  require("nvchad.term").toggle {
+    pos = "sp",
+    id = "hTerm",
+  }
+end)
+
+-- FLOAT LAZYGIT
 map({ "n", "t" }, "<A-g>", function()
   require("nvchad.term").toggle {
     pos = "float",
@@ -23,9 +49,3 @@ map({ "n", "t" }, "<A-g>", function()
     cmd = "lazygit",
   }
 end)
-
--- TMUX NAVIGATOR
-map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", {})
-map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", {})
-map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", {})
-map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", {})

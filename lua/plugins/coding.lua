@@ -55,4 +55,17 @@ return {
       "TmuxNavigatePrevious",
     },
   },
+
+  -- NVIM TODO-COMMENTS
+  {
+    "folke/todo-comments.nvim",
+    lazy = false,
+    requires = "nvim-lua/plenary.nvim",
+    opts = function()
+      return require "configs.todocomments" -- use return required
+    end,
+    config = function(_, opts)
+      require("todo-comments").setup(opts)
+    end,
+  },
 }

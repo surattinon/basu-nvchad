@@ -1,5 +1,4 @@
 return {
-
   -- LSP CONFIG
   {
     "neovim/nvim-lspconfig",
@@ -31,7 +30,6 @@ return {
   {
     "mfussenegger/nvim-jdtls",
   },
-
   -- NVIM JAVA
   {
     "nvim-java/nvim-java",
@@ -93,5 +91,10 @@ return {
       --   dapui.close()
       -- end
     end,
+  },
+
+  -- JAVA REFACTOR
+  {
+    "simaxme/java.nvim",
   },
 }

@@ -1,21 +1,7 @@
 return {
-  -- ALPHA DASHBOARD
-  -- {
-  --   "goolord/alpha-nvim",
-  --   event = "VimEnter",
-  --   priority = 1000,
-  --   lazy = true,
-  --   opts = {
-  --     position = "center",
-  --   },
-  --   config = function()
-  --     require "configs.dashboard"
-  --   end,
-  -- },
-
   -- NOCIE
   {
-    "folk/noice.nvim",
+    "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -30,6 +16,19 @@ return {
     "karb94/neoscroll.nvim",
     config = function()
       require("neoscroll").setup { mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>" } }
+    end,
+  },
+
+  -- NVIM TREE CUSTOM
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require "configs.nvimtree"
     end,
   },
 }

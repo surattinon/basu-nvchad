@@ -1,5 +1,7 @@
 local M = {}
 
+M.plugins = {}
+
 M.ui = {
   ------------------------------- base46 -------------------------------------
   -- hl = highlights
@@ -81,6 +83,13 @@ M.ui = {
       width = 0.5,
       height = 0.4,
       border = "single",
+    },
+  },
+
+  nvimtree = {
+    view = {
+      side = "right",
+      relativenumber = true,
     },
   },
 }

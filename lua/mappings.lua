@@ -35,7 +35,7 @@ map({ "n", "t" }, "<C-t>", function()
 end)
 
 -- FLOAT LAZYGIT
-map({ "n", "t" }, "<A-g>", function()
+map({ "n", "t" }, "<C-g>", function()
   require("nvchad.term").toggle {
     pos = "float",
     float_opts = {
